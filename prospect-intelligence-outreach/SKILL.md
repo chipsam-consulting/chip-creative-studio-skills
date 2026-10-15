@@ -2,7 +2,7 @@
 name: prospect-intelligence-outreach
 description: "When the user wants to find, research, qualify, or reach out to potential clients for a creative strategy service, especially hospitality, food and beverage, retail, lifestyle, sports, or culture brands. Also use when the user mentions 'prospecting,' 'find leads,' 'find clients,' 'prospect list,' 'who should I pitch,' 'research this business,' 'account research,' 'decision-maker,' 'who runs,' 'cold email,' 'cold outreach,' 'outreach draft,' 'pitch email,' 'qualify this lead,' 'score prospects,' 'pipeline,' or 'follow up.' Produces cited prospect briefs, a ranked shortlist, one opportunity per qualified prospect, outreach drafts, and a pipeline ledger that separates research activity from business outcomes. Never invents facts or contacts. For deep single-site research, see competitor-profiling. For review mining, see customer-research. For copy polish, see copywriting."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Prospect Intelligence & Outreach
@@ -57,7 +57,9 @@ Researching 50 businesses is activity. Replies, calls, proposals, and paid work 
 | **B. Deep-dive** | "Research [business]," "is [business] worth pitching" | 2–8 | One prospect brief, score, opportunity, and outreach if it qualifies |
 | **C. Pipeline update** | "They replied," "log this," "how's the pipeline" | 9 | Updated ledger and the activity vs. outcome report |
 
-**Batch size (Mode A):** screen 10–15 candidates and return the 5 best-qualified, or fewer if fewer qualify. Qualified means Pursue or Nurture (55+, no Skip gate). List Watch candidates separately. Never pad the list to reach five.
+**Batch size (Mode A):** screen 10–15 candidates and return the 5 best-qualified, or fewer if fewer qualify. Qualified means Pursue or Nurture (55+, no Skip gate). Rank by total score first. The tie-breakers in the [scoring rubric](references/scoring-rubric.md) apply only when two totals are exactly equal. Show the first candidate below the cut, with its score and why it missed. List Watch candidates separately. Never pad the list to reach five.
+
+**Score every finalist before calling the shortlist complete.** If a run stops with finalists still unscored (time, unreadable sources, or the user's limit), label the shortlist **Provisional: N finalists unscored**, name them, and say why the run stopped. In the QA report, keep three groups apart: fully scored qualified prospects, Watch candidates, and unscored finalists.
 
 ---
 
@@ -69,8 +71,18 @@ Search the target market for businesses that match the context file's ideal clie
 
 - Use local press, food and nightlife media, business journals, city and county records, event calendars, and the business's own channels. See [references/discovery-sources.md](references/discovery-sources.md) for sources by market and the trigger catalog.
 - Quick-screen each candidate on four questions: Is it operating (or opening)? Does it fit the ideal client list? Is there a trigger? Does it hit an anti-persona or the do-not-pitch list?
-- Drop exclusions silently: the already-pitched list, current clients, and any business in the ledger.
-- Keep a screening table (candidate, segment, trigger, source, keep or drop and why). It goes in the output so the user can see what was rejected.
+- Exclusions (the already-pitched list, current clients, competitors of current clients, and any business in the ledger) are removed before screening and counted, but not named in shared outputs.
+- **Drop at screening only for one of these reasons, and name the reason:**
+  1. **Closed, closing, or in visible distress, with no credible recovery path.** Drop a business that has closed for good, has announced it is closing, or shows visible distress (for example eviction, bankruptcy, or an owner's public appeal to stay open) without a sourced plan to recover.
+
+     **A temporary closure is different.** A business closed for restoration, rebuilding or relocation stays a finalist and is scored, even if the reopening date is uncertain, but only when a Tier 1 or Tier 2 source dated within the last 12 months reports a credible path to reopening. A credible path means a named owner, developer or operator, plus at least one of: approved plans or permits, construction under way, a financing or ownership transfer under way, or a stated reopening target. A closure with no such sourced path is dropped under reason 1 and recorded as "closed, no credible reopening path." Hopes, rumors, a "for lease" sign, or an owner saying they would like to reopen don't count.
+  2. Excluded (as above)
+  3. Hits an anti-persona in the context file
+  4. The only visible need is a do-not-pitch service
+  5. No trigger at all
+  6. The trigger has passed and no follow-on is announced
+- **Every other candidate is a finalist and gets scored**, including weak or distant triggers. Let the Timing score and the gates do the sorting, so the reasoning is visible.
+- Keep a screening table (candidate, segment, trigger, source with date, finalist or dropped with the numbered reason). It goes in the output so the user can see what was rejected.
 
 ### Step 2 — Research each finalist
 
@@ -89,6 +101,8 @@ For a deeper site review, use the research process in `competitor-profiling` but
 
 Pages you can't read (Instagram, logged-in pages, sites blocked by robots.txt) go on the verification list. Never describe what they "probably" contain.
 
+**Report research coverage for every finalist that gets a brief.** Mark each step in the Research Coverage table of [assets/prospect-brief-template.md](assets/prospect-brief-template.md) as Completed, Skipped (with the reason), Unavailable (naming the source), or N/A. Never leave a skipped step looking complete. Pursue requires Completed for operating status, timing, decision-maker, and contact route. Ready to Contact also requires the original-source check (Step 7) to be Completed. Outreach can't use findings from a Skipped or Unavailable step.
+
 ### Step 3 — Tag the evidence
 
 Tag every claim in the brief:
@@ -100,7 +114,32 @@ Tag every claim in the brief:
 
 Match the context file's buyer roles to named people at the business, using public sources only. Record each route with its type, source, date, and confidence. The allowed routes and compliance rules are in [references/decision-makers-and-contacts.md](references/decision-makers-and-contacts.md).
 
-If no decision-maker can be named, say so. A general inbox or contact form is an acceptable route, but it lowers the Access score.
+If no decision-maker can be named, say so. Score Access from the matrix:
+
+**Access matrix** (kept identical in `SKILL.md`, `references/scoring-rubric.md` and `references/decision-makers-and-contacts.md`)
+
+Person, the best one found:
+- **A:** a named decision-maker, high confidence
+- **B:** a named decision-maker, medium confidence, or a named champion (GM, marketing, events or partnerships lead)
+- **C:** no one named, or only a low-confidence name
+
+Route, the best one published:
+- **Direct written:** a confirmed warm introduction, or an email published for that named person or their role
+- **General written:** a general business inbox (info@, hello@), a contact or inquiry form on the business's own site (including a third-party form the site itself links to), or the business's own social inbox, used manually
+- **Phone or walk-in only:** the business's published phone number, or an in-person visit in a market the user can realistically visit
+- **None:** no published route
+
+**Unverified routes.** Score Access only on routes verified in this run. A route that couldn't be found or read scores as None. The prospect stays in the scored ranking on that score. It isn't dropped, and its score isn't raised on assumption.
+
+| Person / Route | Direct written | General written | Phone or walk-in only | None |
+|---|---|---|---|---|
+| **A** | 5 | 4 | 3 | 1 |
+| **B** | 4 | 3 | 2 | 1 |
+| **C** | — | 2 | 2 | 1 |
+
+**Hard gates:** Access 2 or lower can't be Pursue. Access 1 means there is no usable route.
+
+**Pursue vs. Ready to Contact.** Pursue is a tier: 75 or more, with no gate hit. A Pursue prospect is **Ready to Contact** only when its best route is written (Direct or General written) the user can see and use that address or form now, and the original-source check of its outreach claims is complete. A Pursue prospect reachable only by phone or walk-in, or whose published email is obfuscated and not yet viewed by the user, is Pursue but not Ready to Contact. Its required next action is to call or visit (or view the address on the site) to get a written route. A call or visit is for obtaining the route, not for pitching unexpectedly. Any draft for it is provisional and carries the label **Do not send until a written route is confirmed.**
 
 ### Step 5 — Score and rank
 
@@ -121,9 +160,11 @@ Score each finalist 1–5 on five criteria, then weight:
 **Gates (override the total):**
 - Timing 2 or lower: not Pursue
 - Evidence 2 or lower: not Pursue
-- Access 2 or lower (no name, or a name with no route): not Pursue
+- Access 2 or lower (see the Access matrix in Step 4): not Pursue
 - The only visible need is a do-not-pitch service: Skip
 - A guardrail conflict (current client, already pitched, competitor of a client): Skip
+
+**Evidence cap:** if the trigger date rests on one source, Evidence can't exceed 3 unless that source is Tier 1. Skipped customer-experience research doesn't cap Evidence, but it must show in Research Coverage.
 
 Every score cites the evidence behind it. Score anchors are in [references/scoring-rubric.md](references/scoring-rubric.md).
 
@@ -139,7 +180,7 @@ For each Pursue prospect, build one opportunity with the template in [references
 - **What would make it wrong:** the hypotheses that could sink it
 - **How success could be judged:** measures to agree with the client, labeled illustrative
 
-Never promise ROI or revenue. Never offer a do-not-pitch service. Never price it unless the private context holds confirmed pricing, and keep prices out of outreach either way.
+Never promise ROI or revenue. Never offer a do-not-pitch service. An internal scope note may cite only pricing the private context marks as confirmed; otherwise write "pricing not confirmed." Keep prices out of outreach either way.
 
 ### Step 7 — Write the outreach
 
@@ -150,13 +191,17 @@ Draft a cold email of 120 words or fewer, plus a short version for a contact for
 3. **Credibility:** one verified line from the context file's proof points. Cite a portfolio concept only when it's labeled as a concept and cleared for public reference.
 4. **The ask:** one low-friction ask, such as a 20-minute call
 
+Before a draft is final, check every quote, date, number, award, and plan in it against the original page, not a tool's summary or a search snippet, and log "verified against original" in the brief. Attribute inferred dates to their source ("by your own count," "by the newspaper's 2017 opening story"). Phrase unconfirmed plans as reported ("reported to open later this year"). The rules are in [references/evidence-standards.md](references/evidence-standards.md).
+
+**Provisional vs. send-ready drafts.** A draft for a Pursue prospect that isn't Ready to Contact is **provisional**. Its first line, in bold above the draft, reads **Do not send until a written route is confirmed.** A draft becomes **send-ready** only when both are true: the original-source check is Completed for every quote, date, number, award, and plan in it, and the user has a usable written route (Direct or General written). Mark it "Send-ready, checked YYYY-MM-DD." A phone call or visit is only for getting the right written route. Don't pitch the idea unexpectedly on that call. Share it only if the person asks.
+
 Then run the quality checklist in [references/outreach-playbook.md](references/outreach-playbook.md), including the AI-tell check from `copywriting/references/ai-tells.md`.
 
 **Never in outreach:** client names not cleared for public use, prices, ROI promises, "you need," invented familiarity, a full concept or free deck, claims beyond Observed, or excluded services.
 
 ### Step 8 — Recommend the next action
 
-For each prospect, give exactly one next action: send now, verify something first, wait for a dated trigger, nurture, or drop. Then list everything still to verify: every Hypothesis, every unreadable source, and any contact detail older than 6 months.
+For each prospect, give exactly one next action: send now (Ready to Contact only), get a written route (Pursue but not Ready to Contact), verify something first, wait for a dated trigger, nurture, or drop. Then list everything still to verify: every Hypothesis, every Unverified quote, every Skipped or Unavailable research step, every unreadable source, and any contact detail older than 6 months.
 
 ### Step 9 — Update the pipeline (all modes)
 
@@ -178,16 +223,27 @@ When reporting, keep **activity** (researched, qualified, contacted) separate fr
 # Prospect Shortlist: [Market] — [Date]
 
 ## Screening (10–15 candidates)
-| Candidate | Segment | Trigger | Source | Kept? Why |
+| Candidate | Segment | Trigger | Source (date) | Finalist, or dropped (reason 1–6) |
 
 ## Ranked shortlist (up to 5)
-| Rank | Business | Tier | Score | Fit | Timing | Comm. | Evid. | Access | Trigger date | Next action |
+| Rank | Business | Tier | Ready to Contact | Score | Fit | Timing | Comm. | Evid. | Access | Trigger date | Next action |
+
+First candidate below the cut: [name, score, tier, why it missed]
 
 ## [Business 1]
-[Prospect brief, opportunity and outreach, using assets/prospect-brief-template.md]
+[Prospect brief, with Research Coverage, opportunity and outreach, using assets/prospect-brief-template.md]
 
 ## Still to verify
 ## Pipeline report (activity vs. outcomes)
+## QA report
+- Skill files used
+- Counts: screened · dropped at screening (by reason 1–6) · finalists · scored · unscored finalists
+- **Fully scored qualified prospects:** N (Pursue N, of which Ready to Contact N; Nurture N)
+- **Watch candidates:** N (scored, not qualified)
+- **Unscored finalists:** N, each named with why it wasn't scored. If N > 0, the shortlist is Provisional.
+- Research coverage per prospect, with counts of Completed, Skipped, Unavailable, and N/A steps, and which required steps (operating status, timing, decision-maker, route, original-source check) aren't Completed
+- Unverified inputs: for each one, the score it would produce if verified, labeled **conditional**, and whether that would change the shortlist or the first candidate below the cut. Rank only on definitive scores.
+- Rules interpreted
 ```
 
 ### Mode B (Deep-dive)
@@ -207,6 +263,8 @@ The updated ledger rows and the activity vs. outcome report.
 - **Guessing contacts.** firstname@domain is a guess. A guess is never a contact.
 - **Over-delivering in the first email.** A full concept is free work. One sentence of idea is a reason to talk.
 - **Padding the shortlist.** Two real Pursues beat five forced ones.
+- **Quoting a summary.** A fetch tool's paraphrase isn't the article. Check the original before quoting it.
+- **Hiding a skipped step.** A brief with no review research must say so, not look complete.
 - **Counting research as progress.** Report outcomes, not effort.
 - **Leaking private context.** Client names, prices, and pitch history stay private.
 

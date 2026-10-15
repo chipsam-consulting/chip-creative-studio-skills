@@ -16,6 +16,8 @@ Formats, structure, follow-ups, and the checklist every draft must pass.
 
 Stop after two follow-ups. A "no" or an opt-out ends the sequence.
 
+**Provisional vs. send-ready drafts.** A draft for a Pursue prospect that isn't Ready to Contact is **provisional**. Its first line, in bold above the draft, reads **Do not send until a written route is confirmed.** A draft becomes **send-ready** only when both are true: the original-source check is Completed for every quote, date, number, award, and plan in it, and the user has a usable written route (Direct or General written). Mark it "Send-ready, checked YYYY-MM-DD." A phone call or visit is only for getting the right written route. Don't pitch the idea unexpectedly on that call. Share it only if the person asks.
+
 ---
 
 ## Structure (cold email)
@@ -37,6 +39,9 @@ Stop after two follow-ups. A "no" or an opt-out ends the sequence.
 
 **Truth**
 - [ ] Every fact about the prospect is Observed, with its source in the brief
+- [ ] Every quote, date, number, and award is marked "verified against original" in the brief (see [evidence-standards.md](evidence-standards.md))
+- [ ] Inferred dates are attributed to their source ("by your own count"), and unconfirmed plans are phrased as reported
+- [ ] Nothing comes from a research step marked Skipped or Unavailable
 - [ ] No Hypothesis is stated as fact
 - [ ] No invented familiarity ("I've been a regular for years") unless the user confirms it
 

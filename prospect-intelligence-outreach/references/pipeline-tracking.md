@@ -41,7 +41,7 @@ One row per prospect. Start from [../assets/pipeline-ledger-template.csv](../ass
 |---|---|---|
 | Researched | Activity | A brief exists |
 | Qualified | Activity | Scored Pursue (Nurture rows stay at Researched, with a `next_action_date`) |
-| Contacted | Activity | First outreach sent by the user |
+| Contacted | Activity | First outreach sent by the user (only once the prospect is Ready to Contact) |
 | Replied | **Outcome** | The prospect responded (any response except an automated reply) |
 | Call booked | **Outcome** | A conversation is scheduled |
 | Proposal sent | **Outcome** | A written scope or proposal went out |

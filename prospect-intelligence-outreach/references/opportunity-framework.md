@@ -43,7 +43,7 @@ If any answer is "I imagine…" or "they probably…", the opportunity is a Hypo
 - **No ROI promises.** Never forecast revenue, covers, or traffic for the prospect. If a model helps the user think, label it "illustrative," keep it internal, and never put it in outreach.
 - **No excluded services.** If the only way in is a do-not-pitch service, the prospect is a Skip.
 - **No free work.** The opportunity is for the user's planning and the first call. Don't turn it into a deck, mockups, or a full concept unless the user asks after the prospect replies.
-- **Pricing stays private.** If the private context holds confirmed pricing, note the likely scope band internally. Never put prices in outreach.
+- **Pricing stays private, and only confirmed pricing is cited.** An internal scope note may cite only pricing the private context file marks as confirmed, labeled "confirmed." If no matching price is confirmed, write "pricing not confirmed." Never cite suggested, draft, or unadopted fees, even internally. Never put prices in outreach.
 
 ---
 

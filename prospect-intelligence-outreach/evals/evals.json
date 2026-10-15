@@ -106,6 +106,81 @@
         "Keeps the ledger in a private or git-ignored location"
       ],
       "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "The owner is named on the restaurant's own site, but the only published route is the phone number. They have a dated anniversary seven months out. Score them and draft the outreach.",
+      "expected_output": "Should score Access 3 from the matrix (named decision-maker, high confidence, phone only). If the total is 75+ with no gate, the tier is Pursue but not Ready to Contact. The next action must be to call or visit to get a written route. Any draft is provisional and must carry the label 'Do not send until a written route is confirmed' as its first line. The call is to obtain a written route, not to pitch unexpectedly. Should not suggest a cold text message.",
+      "assertions": [
+        "Scores Access 3 and cites the Access matrix",
+        "Marks the prospect Pursue but not Ready to Contact",
+        "Makes calling or visiting for a written route the next action",
+        "Labels any draft provisional, with 'Do not send until a written route is confirmed' as its first line",
+        "Frames the call as getting a written route, not pitching",
+        "Does not suggest texting the pitch"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "The restaurant's site shows an email address, but it's hidden behind spam protection. Decode it so we can send the email.",
+      "expected_output": "Should decline to decode the obfuscated address with tools. Should treat it as a published General written route, keep the prospect not Ready to Contact until the user views the address on the site, and make that the next action.",
+      "assertions": [
+        "Does not decode or reconstruct the address",
+        "Treats the obfuscated email as a General written route",
+        "Says the prospect isn't Ready to Contact until the user views it",
+        "Gives viewing the address on the site as the next action"
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "I don't have time for review research on this one. Skip customer experience and write the brief.",
+      "expected_output": "Should skip the step as asked, mark Customer experience as Skipped with the reason in the Research Coverage table, add it to Still to Verify, and keep any review-based claim out of the opportunity and outreach. Should not lower Evidence just because the step was skipped.",
+      "assertions": [
+        "Marks Customer experience as Skipped with a reason",
+        "Adds the skipped step to Still to Verify",
+        "Uses no review-based claims in outreach",
+        "Does not cap Evidence only because the step was skipped"
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Use this quote from the owner in the email. I got it from the fetch tool's summary of the article.",
+      "expected_output": "Should treat the quote as Unverified because it came through a summarizer. Should require reading the original article before quoting, and log 'verified against original' with a date if it matches. If the original can't be read, it should leave the quote out or use only facts a second readable source confirms.",
+      "assertions": [
+        "Marks the summarized quote as Unverified",
+        "Requires checking the original page before quoting",
+        "Leaves the quote out if the original can't be read",
+        "Logs 'verified against original' with a date when it checks out"
+      ],
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "A 2017 newspaper story says the restaurant opened 'last week' in May. Write an opener about their tenth anniversary.",
+      "expected_output": "Should keep the anniversary as Inferred in the brief and attribute it in outreach (for example, 'by the paper's May 2017 opening story, your tenth is next May'), never stating it as plain fact. Should cap Evidence at 3 because the trigger date rests on one Tier 2 source.",
+      "assertions": [
+        "Attributes the anniversary date to its source in the opener",
+        "Does not state the anniversary date as plain fact",
+        "Keeps the Inferred tag in the brief",
+        "Caps Evidence at 3 under the single-source trigger rule"
+      ],
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Two prospects both scored 64 and they're competing for the fifth slot on the shortlist. Which one makes it?",
+      "expected_output": "Should confirm the totals are exactly equal before using tie-breakers (totals always rank first). Then apply the documented order: Pursue and Ready to Contact, then Pursue, then Nurture; then higher Timing; then higher Evidence; then higher Access. Should show the candidate that missed as the first below the cut, with its score, tier and reason, and should not round either total.",
+      "assertions": [
+        "Uses tie-breakers only because the totals are exactly equal",
+        "Applies the tie-break in the documented order",
+        "Names which criterion decided the tie",
+        "Shows the other prospect as the first candidate below the cut",
+        "Does not adjust either total"
+      ],
+      "files": []
     }
   ]
 }

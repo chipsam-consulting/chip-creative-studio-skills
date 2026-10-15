@@ -9,7 +9,7 @@ How to source, tag, and date every claim in a prospect brief.
 | Tag | Definition | Example | Can it appear in outreach? |
 |---|---|---|---|
 | **Observed** | A cited source states it. URL and access date included. | "The bar's website says 'serving the city since 1972.' (site, accessed 2026-10-15)" | Yes |
-| **Inferred** | Your reading of Observed facts. State the confidence: high, medium, or low. | "The 50th falls in 2027 by their own count. (High, from the Observed founding year)" | Only if high confidence and phrased as their own fact ("by your own count…") |
+| **Inferred** | Your reading of Observed facts. State the confidence: high, medium, or low. | "The 50th falls in 2027 by their own count. (High, from the Observed founding year)" | Only if high confidence and attributed to its source ("by your own count…", "by the paper's 2017 opening story…"). See Inferred Dates below. |
 | **Hypothesis** | An assumption not yet supported. | "They have no anniversary plan yet." | No. Verify first, or phrase as a question. |
 
 **Rule of thumb:** if you'd be embarrassed to have the owner ask "where did you get that?", it isn't Observed.
@@ -53,6 +53,27 @@ Sources list at the end of every brief:
 ```
 
 For review snapshots: platform, rating, review count, and the date of the snapshot.
+
+---
+
+## Original-Source Verification (before outreach)
+
+Before any quote, date, number, award, or business plan appears in outreach, read the original page itself and log "verified against original, YYYY-MM-DD" next to it in the brief.
+
+- A summarizer's paraphrase, a search-result snippet, or another article's retelling doesn't count as the original.
+- Some fetch tools return a summary instead of the page text. Treat anything that came back that way as **Unverified** until it's checked against the raw page.
+- If the original can't be read (a paywall or a login wall), don't quote it. Use only facts that a second, readable Tier 1 or 2 source confirms, or drop the line.
+- Material claims in the brief follow the same rule before the prospect is marked Ready to Contact.
+
+## Inferred Dates and Reported Plans
+
+**Inferred dates** (an anniversary worked out from a founding or opening date) keep the Inferred tag and a confidence level in the brief. In outreach, always attribute them to their source:
+- "By your own count, 2027 is year 60."
+- "By the newspaper's May 2017 opening story, your tenth is next May."
+
+Never state an inferred date as plain fact ("your tenth anniversary is in May").
+
+**Unconfirmed business plans** (an opening "later this year," a planned expansion, a filed permit) are written as reported, in both the brief and outreach: "reported to open later this year," "plans filed with the city." The report itself is Observed. The plan stays a Hypothesis until the business confirms it, and outreach never presents it as settled.
 
 ---
 
